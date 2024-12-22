@@ -1,0 +1,107 @@
+﻿namespace = bankruptcy_disbands_army
+
+bankruptcy_disbands_army.1 = {
+	type = country_event
+	hidden = yes
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_variable = bankruptcy_disbands_army_active }
+			}
+			set_variable = bankruptcy_disbands_army_active
+		}
+		if = {
+			limit = {
+				in_default = yes
+			}
+			if = {
+				limit = {
+					NOT = { has_variable = bankruptcy_disbands_army_default }
+				}
+				set_variable = bankruptcy_disbands_army_default
+			}
+			if = {
+				limit = {
+					has_modifier = declared_bankruptcy
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = bankruptcy_disbands_army_bankrupt }
+					}
+					set_variable = bankruptcy_disbands_army_bankrupt
+					every_scope_state = {
+						remove_building = building_barracks
+						remove_building = building_conscription_center
+						remove_building = building_naval_base
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						has_variable = bankruptcy_disbands_army_bankrupt
+					}
+					remove_variable = bankruptcy_disbands_army_bankrupt
+				}
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					has_modifier = declared_bankruptcy
+				}
+				if = {
+					limit = {
+						has_variable = bankruptcy_disbands_army_bankrupt
+					}
+					if = {
+						limit = {
+							has_variable = bankruptcy_disbands_army_default
+						}
+						remove_variable = bankruptcy_disbands_army_default
+						if = {
+							limit = {
+								NOT = {
+									any_scope_building = {
+										cash_reserves_ratio >= 1.0
+									}
+								}
+							}
+							every_scope_state = {
+								remove_building = building_barracks
+								remove_building = building_conscription_center
+								remove_building = building_naval_base
+							}
+						}
+					}
+				}
+				else = {
+					set_variable = bankruptcy_disbands_army_bankrupt
+					every_scope_state = {
+						remove_building = building_barracks
+						remove_building = building_conscription_center
+						remove_building = building_naval_base
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						has_variable = bankruptcy_disbands_army_bankrupt
+					}
+					remove_variable = bankruptcy_disbands_army_bankrupt
+				}
+				if = {
+					limit = {
+						has_variable = bankruptcy_disbands_army_default
+					}
+					remove_variable = bankruptcy_disbands_army_default
+				}
+			}
+		}
+		trigger_event = {
+			id = bankruptcy_disbands_army.1
+			days = 1
+		}
+	}
+}

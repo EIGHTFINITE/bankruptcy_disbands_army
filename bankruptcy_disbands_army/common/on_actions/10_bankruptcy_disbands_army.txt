@@ -1,0 +1,17 @@
+﻿# Root = Country
+on_monthly_pulse_country = {
+	events = {
+	}
+
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_variable = bankruptcy_disbands_army_active }
+			}
+			trigger_event = { id = bankruptcy_disbands_army.1 }
+		}
+	}
+
+	on_actions = {
+	}
+}
