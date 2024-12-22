@@ -1,0 +1,12 @@
+{
+  "name" : "bankruptcy_disbands_army",
+  "id" : "",
+  "version" : "1.0",
+  "supported_game_version" : "1.8.*",
+  "short_description" : "",
+  "tags" : ["Balance","Economy And Buildings","Fixes","Gameplay","Pops","Warfare"],
+  "relationships" : [],
+  "game_custom_data" : {
+    "multiplayer_synchronized" : true
+  }
+}
