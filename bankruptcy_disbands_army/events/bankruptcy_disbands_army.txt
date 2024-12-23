@@ -107,6 +107,12 @@ bankruptcy_disbands_army.1 = {
 				}
 				else = {
 					set_variable = bankruptcy_disbands_army_bankrupt
+					if = {
+						limit = {
+							has_variable = bankruptcy_disbands_army_default
+						}
+						remove_variable = bankruptcy_disbands_army_default
+					}
 					every_scope_state = {
 						if = {
 							limit = {
