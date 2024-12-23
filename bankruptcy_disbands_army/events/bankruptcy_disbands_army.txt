@@ -30,9 +30,24 @@ bankruptcy_disbands_army.1 = {
 					}
 					set_variable = bankruptcy_disbands_army_bankrupt
 					every_scope_state = {
-						remove_building = building_barracks
-						remove_building = building_conscription_center
-						remove_building = building_naval_base
+						if = {
+							limit = {
+								has_building = building_barracks
+							}
+							remove_building = building_barracks
+						}
+						if = {
+							limit = {
+								has_building = building_conscription_center
+							}
+							remove_building = building_conscription_center
+						}
+						if = {
+							limit = {
+								has_building = building_naval_base
+							}
+							remove_building = building_naval_base
+						}
 					}
 				}
 			}
@@ -68,9 +83,24 @@ bankruptcy_disbands_army.1 = {
 								}
 							}
 							every_scope_state = {
-								remove_building = building_barracks
-								remove_building = building_conscription_center
-								remove_building = building_naval_base
+								if = {
+									limit = {
+										has_building = building_barracks
+									}
+									remove_building = building_barracks
+								}
+								if = {
+									limit = {
+										has_building = building_conscription_center
+									}
+									remove_building = building_conscription_center
+								}
+								if = {
+									limit = {
+										has_building = building_naval_base
+									}
+									remove_building = building_naval_base
+								}
 							}
 						}
 					}
@@ -78,9 +108,24 @@ bankruptcy_disbands_army.1 = {
 				else = {
 					set_variable = bankruptcy_disbands_army_bankrupt
 					every_scope_state = {
-						remove_building = building_barracks
-						remove_building = building_conscription_center
-						remove_building = building_naval_base
+						if = {
+							limit = {
+								has_building = building_barracks
+							}
+							remove_building = building_barracks
+						}
+						if = {
+							limit = {
+								has_building = building_conscription_center
+							}
+							remove_building = building_conscription_center
+						}
+						if = {
+							limit = {
+								has_building = building_naval_base
+							}
+							remove_building = building_naval_base
+						}
 					}
 				}
 			}
