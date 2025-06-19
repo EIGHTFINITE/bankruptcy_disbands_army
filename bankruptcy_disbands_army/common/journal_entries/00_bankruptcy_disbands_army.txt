@@ -1,0 +1,28 @@
+﻿je_bankruptcy_disbands_army = {
+	icon = "gfx/interface/icons/alert_icons/bankruptcy.dds"
+
+	group = je_group_crises
+
+	is_shown_when_inactive = {
+		NOT = { has_variable = bankruptcy_disbands_army_active }
+	}
+
+	possible = {
+		hidden_trigger = { NOT = { has_variable = bankruptcy_disbands_army_active } }
+	}
+
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_variable = bankruptcy_disbands_army_active }
+			}
+			trigger_event = { id = bankruptcy_disbands_army.1 }
+		}
+	}
+
+	complete = {
+		has_variable = bankruptcy_disbands_army_active
+	}
+
+	weight = 0
+}
